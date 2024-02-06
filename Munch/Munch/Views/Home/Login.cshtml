@@ -1,0 +1,40 @@
+﻿@model Munch.Models.Login
+
+@{
+    ViewData["Title"] = "Log in";
+    Layout = "/Views/Shared/_Layout_priv.cshtml";
+}
+
+    <section>
+    <form id="account" method="post" style="margin-left:25px; margin-right:25px;">
+            <h2>Use a local account to log in.</h2>
+            <hr />
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="Email" class="form-control" placeholder="name@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="Password" class="form-control" placeholder="password" required>
+            </div>
+
+            <div class="form-check">
+                <input type="checkbox" id="rememberMe" class="form-check-input">
+                <label for="rememberMe" class="form-check-label">Remember me</label>
+            </div>
+            <div>
+                <button id="login-submit" type="submit" class="w-100 btn btn-primary">Log in</button>
+            </div>
+            <div>
+                <p>
+                    <!-- Display an error message if login fails -->
+                    <span class="text-danger">@ViewBag.ErrorMessage</span>
+                </p>
+                <p>
+                <a id="login" asp-area="Identity" asp-page="/Account/Login">Login as User</a>
+                </p>
+                
+            </div>
+        </form>
+    </section>
+

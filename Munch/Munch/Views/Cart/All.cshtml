@@ -1,0 +1,112 @@
+﻿@model IList<Munch.ViewModels.CartItems.OrderAllViewModel>
+
+@{
+    ViewData["Title"] = "All Orders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<center>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <div class="menu-container">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h5 class="section-title ff-secondary text-center text-primary fw-normal">Your Cart</h5>
+                <h2 class="mb-5">Added Items</h2>
+            </div>
+            <table class="table mx-auto">
+                <thead>
+                    <tr class="row">
+                        <th class="col-md-1">#</th>
+                        <th class="col-md-4">Item</th>
+                        <th class="col-md-2">Quantity</th>
+                        <th class="col-md-2">Price</th>
+                        <th class="col-md-3">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (var i = 0; i < Model.Count(); i++)
+                    {
+                        <tr class="row">
+                            <th class="col-md-1">@(i + 1)</th>
+                            <td class="col-md-4">@Model[i].Item.Name</td>
+                            <td class="col-md-2">@Model[i].Quantity</td>
+                            <td class="col-md-2">@Model[i].TotalPrice</td>
+                            <td class="col-md-3">
+                                <form asp-controller="Cart" asp-action="Delete" method="post">
+                                    <input type="hidden" name="cartItemId" value="@Model[i].CartItemId" />
+                                    <button type="submit" class="btn btn-danger btn-delete">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="button-holder d-flex justify-content-center text-center">
+                <a asp-controller="Items" asp-action="All" class="btn btn-primary mx-2">Back</a>
+                <a asp-controller="Order" asp-action="Checkout" class="btn btn-info mx-2">Checkout</a>
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+</center>
+
+<style>
+    .menu-container {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    /* Heading Styles */
+    .section-title {
+        font-size: 24px;
+        color: #FEA116;
+    }
+
+    /* Table Styles */
+    table {
+        width: 100%;
+        margin-bottom: 40px;
+        background-color: #FFf;
+        border: 3px solid #fea116;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    th, td {
+        text-align: center;
+        padding: 15px;
+        border: 1px solid #dee2e6;
+    }
+
+    thead {
+        background-color: #FEA116;
+        color: #fff;
+    }
+
+    tbody tr {
+        transition: background-color 0.3s ease;
+    }
+
+        tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+
+    .button-holder {
+        margin-top: 30px;
+    }
+
+    .btn-delete {
+        background-color: orangered;
+    }
+</style>

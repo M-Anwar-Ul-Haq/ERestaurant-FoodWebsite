@@ -1,0 +1,109 @@
+﻿@{
+    ViewData["Title"] = "ApplyForJob";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Munch.Models.JobApplication
+<center>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+        <h5 class="section-title ff-secondary text-center text-primary fw-normal">Apply For Job</h5>
+    </div>
+    <form method="post" enctype="multipart/form-data" class="apply-form">
+        <div class="form-group">
+            <label for="FirstName">First Name:</label>
+            <input type="text" id="FirstName" name="FirstName" value="@Model.FirstName" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="LastName">Last Name:</label>
+            <input type="text" id="LastName" name="LastName" value="@Model.LastName" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="Age">Age:</label>
+            <input type="number" id="Age" name="Age" value="@Model.Age" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="Email">Email:</label>
+            <input type="email" id="Email" name="Email" value="@Model.Email" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="PhoneNumber">Phone Number:</label>
+            <input type="tel" id="PhoneNumber" name="PhoneNumber" value="@Model.PhoneNumber" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="PositionApplyingFor">Position Applying For:</label>
+            <input type="text" id="PositionApplyingFor" name="PositionApplyingFor" value="@Model.PositionApplyingFor" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="Address">Address:</label>
+            <textarea id="Address" name="Address" class="form-control" required>@Model.Address</textarea>
+        </div>
+        <div class="form-group">
+            <label for="CV">Upload CV:</label>
+            <input type="file" id="CV" name="CV" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Done</button>
+        </div>
+    </form>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</center>
+
+<style>
+    /* Form Styles */
+    .apply-form {
+        font-size: 16px;
+        margin-left: 30%;
+        margin-right: 30%;
+        margin-top: 20px;
+        border: solid;
+        border-width: 1px;
+        border-color: #000;
+        font-weight: bold;
+    }
+
+    .form-group {
+        margin: 20px 20px 20px 20px;
+        text-align: left;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        color: #D48E00;
+    }
+
+    input,
+    textarea,
+    select {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #D48E00;
+        border-radius: 5px;
+        color: #333;
+    }
+
+    button {
+        background-color: #FEA116;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 20px;
+    }
+
+        button:hover {
+            background-color: #333;
+        }
+</style>

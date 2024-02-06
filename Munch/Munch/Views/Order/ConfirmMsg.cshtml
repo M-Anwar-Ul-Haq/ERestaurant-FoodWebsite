@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Order Confirmed";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<center>
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+        <h5 class="section-title ff-secondary text-center text-primary fw-normal">Status</h5>
+    </div>
+
+    <div class="confirmation-container">
+        <p>Your Order has been Confirmed</p>
+        <p>You will receive your order within 30 minutes.</p>
+        <br />
+        <div class="confirmation-message">
+            <div class="tick-icon">&#10004;</div>
+            <p class="confirmation-text">Thank you for your order!</p>
+        </div>
+        <br />
+        <p>Contact us for any issues: <a href="@Url.Action("Contact", "Home")">Contact</a></p>
+    </div>
+    <div class="button-holder d-flex justify-content-center text-center">
+        <a asp-controller="Home" asp-action="About" class="btn btn-primary mx-2">Home</a>
+        </div>
+    <br />
+    <br />
+    <br />
+    <br />
+</center>
+
+<style>
+
+    .confirmation-container {
+        background-color: #ADD8E6;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px;
+        text-align: center;
+    }
+
+    .tick-icon {
+        font-size: 50px;
+        color: #4CAF50;
+        margin-bottom: 10px;
+    }
+
+    .confirmation-text {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333; /* Text color for the confirmation message */
+    }
+
+    .confirmation-container a{
+        color: #007BFF; /* Blue color for the link */
+    }
+
+        .confirmation-container a:hover {
+            text-decoration: underline;
+        }
+</style>

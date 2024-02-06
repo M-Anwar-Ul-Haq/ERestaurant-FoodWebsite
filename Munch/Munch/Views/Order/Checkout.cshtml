@@ -1,0 +1,177 @@
+﻿@model Munch.ViewModels.Order.CheckoutViewModel
+
+@{
+    ViewData["Title"] = "Checkout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<center>
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+        <h5 class="section-title ff-secondary text-center text-primary fw-normal">Your Cart</h5>
+        <h2 class="mb-5">Provide Information</h2>
+    </div>
+
+    <div class="checkout-container">
+        <form asp-controller="Order" asp-action="Checkout" method="post">
+            <div class="form-floating mb-3">
+                <input asp-for="Name" class="form-control" autocomplete="name" aria-required="true" placeholder="John Doe" required />
+                <label asp-for="Name">Your Name</label>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Address" class="form-control" autocomplete="address" aria-required="true" placeholder="858 Block B, Faisal Town" required />
+                <label asp-for="Address">Address</label>
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="PhoneNumber" type="tel" class="form-control" autocomplete="tel" aria-required="true" placeholder="03xx1234567" required />
+                <label asp-for="PhoneNumber">Phone Number</label>
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="CouponCode" class="form-control" autocomplete="CouponCode" aria-required="true" placeholder="123-45-abc" />
+                <label asp-for="CouponCode">Coupon Code</label>
+                <span asp-validation-for="CouponCode" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Payment Method:</label>
+                <div class="form-check">
+                    <input type="radio" id="payWithCash" name="PaymentMethod" value="Cash" class="form-check-input" checked />
+                    <label for="payWithCash" class="form-check-label">Cash</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="payWithCard" name="PaymentMethod" value="Card" class="form-check-input" />
+                    <label for="payWithCard" class="form-check-label">Card</label>
+                </div>
+            </div>
+
+            <div id="cardFields" style="display:none;">
+                <div class="form-floating mb-3">
+                    <input asp-for="CardNumber" class="form-control" autocomplete="CardNumber" aria-required="true" placeholder="0000111122223333" required />
+                    <label asp-for="CardNumber">Card Number</label>
+                    <span asp-validation-for="CardNumber" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group total-price">
+                <div class="total-price-block">
+                    <label>Total Price: @Model.TotalPrice Rs.</label>
+                </div>
+            </div>
+
+            <div>
+                <a asp-action="All" asp-controller="Cart" class="btn btn-secondary">Back</a>
+                <a asp-action="ConfirmMsg" asp-controller="Order" class="btn btn-secondary">Confirm</a>
+            </div>
+        </form>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+</center>
+
+@section scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var cashRadio = document.getElementById('payWithCash');
+            var cardRadio = document.getElementById('payWithCard');
+            var cardFields = document.getElementById('cardFields');
+
+            cashRadio.addEventListener('change', function () {
+                cardFields.style.display = 'none';
+            });
+
+            cardRadio.addEventListener('change', function () {
+                cardFields.style.display = 'block';
+            });
+        });
+    </script>
+}
+
+<style>
+    /* Heading Styles */
+    .section-title {
+        font-size: 24px;
+        color: #FEA116;
+    }
+
+    /* Form Styles */
+    .checkout-container {
+        font-size: 16px;
+        margin-left: 30%;
+        margin-right: 30%;
+        margin-top: 20px;
+        border: solid;
+        border-width: 1px;
+        border-color: #000;
+        font-weight: bold;
+    }
+
+    .form-floating {
+        margin-top: 20px;
+        max-width: 70%;
+    }
+
+    .form-group {
+        margin: 20px 20px 20px 20px;
+        text-align: left;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        color: #000;
+    }
+
+    input {
+        width: 60%;
+        padding: 10px;
+        border: 2px solid #D48E00;
+        border-radius: 5px;
+        color: #333;
+    }
+
+    /* Radio Button Styles */
+    .form-check {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .form-check-input {
+        margin-right: 10px;
+    }
+
+    .total-price-block {
+        background-color: #FEA116;
+        padding: 15px;
+        border-radius: 5px;
+        width: 100%;
+        font-size: 18px;
+        color: #fff;
+        margin-top: 10px;
+    }
+
+    .btn-secondary {
+        background-color: #FEA116;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 20px;
+    }
+
+        .btn-secondary:hover {
+            background-color: #333;
+        }
+</style>

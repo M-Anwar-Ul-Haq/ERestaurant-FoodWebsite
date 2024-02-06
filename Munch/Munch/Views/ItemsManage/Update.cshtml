@@ -1,0 +1,99 @@
+﻿@model Munch.ViewModels.Items.UpdateItemViewModel
+
+@{
+    ViewData["Title"] = "Update Item";
+    Layout = "~/Views/Shared/_Layout_admin.cshtml";
+}
+<center>
+    <br />
+    <br /><br />
+    <br /><br />
+
+    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+        <h5 class="section-title ff-secondary text-center text-primary fw-normal">Update Item</h5>
+    </div>
+
+    <form class="menu-container" asp-controller="ItemsManage" asp-action="Update" method="post">
+        <div class="container">
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <input type="text" class="form-control" id="Name" name="Name" value="@Model.Name" required />
+            </div>
+            <div class="form-group">
+                <label for="Price">Price</label>
+                <input type="number" step="0.01" min="0.01" class="form-control" id="Price" name="Price" value="@Model.Price" required />
+            </div>
+            <div class="form-group">
+                <label for="CategoryId">Category</label>
+                <select id="CategoryId" class="form-control" name="CategoryId">
+                    @foreach (var category in Model.Categories)
+                    {
+                        <option value="@category.CategoryId" selected="@(Model.CategoryId == category.CategoryId)">
+                            @category.CategoryName
+                        </option>
+                    }
+                </select>
+            </div>
+            <div class="button-holder d-flex justify-content-center">
+                <a asp-controller="ItemsManage" asp-action="A_All" class="btn btn-default mx-2">Cancel</a>
+                <button type="submit" class="btn btn-warning">Confirm</button>
+            </div>
+        </div>
+        <input type="hidden" name="ItemId" value="@Model.ItemId" />
+    </form>
+
+    <br /><br />
+    <br /><br />
+</center>
+<style>
+    /* Add/update styles as needed */
+    /* Heading Styles */
+    .section-title {
+        font-size: 24px;
+        color: #FEA116;
+    }
+
+    /* Form Styles */
+    .form-group {
+        margin: 20px 20px 20px 20px;
+        text-align: left;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        color: #D48E00;
+    }
+
+    input {
+        width: 60%;
+        padding: 10px;
+        border: 2px solid #D48E00;
+        border-radius: 5px;
+        color: #333;
+    }
+
+    /* Button Styles */
+    .btn-warning {
+        background-color: #FFC107;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+
+    .btn-default {
+        background-color: #FEA116;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        .btn-default:hover {
+            background-color: #333;
+        }
+</style>

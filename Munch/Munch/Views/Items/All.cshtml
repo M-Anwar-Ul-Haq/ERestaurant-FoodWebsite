@@ -1,0 +1,136 @@
+﻿@model IList<Munch.ViewModels.Items.ItemsAllViewModels>
+
+@{
+    ViewData["Title"] = "All Items";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<center>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <div class="menu-container">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h5 class="section-title ff-secondary text-center text-primary fw-normal">Food Menu</h5>
+                <h1 class="mb-5">Most Popular Items</h1>
+            </div>
+            <table class="table mx-auto">
+                <thead>
+                    <tr class="row">
+                        <th class="col-md-1">#</th>
+                        <th class="col-md-3">Name</th>
+                        <th class="col-md-2">Price</th>
+                        <th class="col-md-3">Category</th>
+                        <th class="col-md-3">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (var i = 0; i < Model.Count(); i++)
+                    {
+                        <tr class="row">
+                            <th class="col-md-1">@(i + 1)</th>
+                            <td class="col-md-3">@Model[i].Name</td>
+                            <td class="col-md-2">@Model[i].Price</td>
+                            <td class="col-md-3">@Model[i].Category</td>
+                            <td class="col-md-3">
+                                <form asp-controller="Cart" asp-action="AddToCart" method="post">
+                                    <input type="hidden" name="itemId" value="@Model[i].Id" />
+                                    <div class="quantity-container" onmouseover="showQuantity(this)" onmouseout="hideQuantity(this)">
+                                        <input type="number" name="quantity" class="quantity-input" value="0" min="1" style="display: none;">
+                                        <button type="submit" class="btn btn-success btn-add-to-cart">Add to Cart</button>
+                                    </div>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="button-holder d-flex justify-content-center text-center">
+                <!--<a asp-controller="Items" asp-action="Create" class="btn btn-info">Create</a>-->
+                <a asp-controller="Home" asp-action="About" class="btn btn-primary mx-2">Back</a>
+                <a asp-controller="Cart" asp-action="All" class="btn btn-info mx-2">Cart</a>
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+</center>
+
+<style>
+    
+    .menu-container {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    /* Heading Styles */
+    .section-title {
+        font-size: 24px;
+        color: #FEA116;
+    }
+
+    /* Table Styles */
+    table {
+        width: 100%;
+        margin-bottom: 40px;
+        background-color: #FFf;
+        border: 3px solid #fea116;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    th, td {
+        text-align: center;
+        padding: 15px;
+        border: 1px solid #dee2e6;
+    }
+
+    thead {
+        background-color: #FEA116;
+        color: #fff;
+    }
+
+    tbody tr {
+        transition: background-color 0.3s ease;
+    }
+
+        tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+
+    .button-holder {
+        margin-top: 30px;
+    }
+
+    .quantity-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .quantity-input {
+        width: 40px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+</style>
+
+<script>
+    function showQuantity(element) {
+        var input = element.querySelector('.quantity-input');
+        input.style.display = 'block';
+    }
+
+    function hideQuantity(element) {
+        var input = element.querySelector('.quantity-input');
+        input.style.display = 'none';
+    }
+</script>

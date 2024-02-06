@@ -1,0 +1,114 @@
+﻿@model IList<Munch.ViewModels.Categories.CategoryAllViewModel>
+
+@{
+    ViewData["Title"] = "Categories Manage";
+    Layout = "~/Views/Shared/_Layout_admin.cshtml";
+}
+<center>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <div class="menu-container">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h5 class="section-title ff-secondary text-center text-primary fw-normal">Manage Categories</h5>
+                <h1 class="mb-5">All Categories</h1>
+            </div>
+            <table class="table mx-auto">
+                <thead>
+                    <tr class="row">
+                        <th class="col-md-1">#</th>
+                        <th class="col-md-6">Category</th>
+                        <th class="col-md-5">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (var i = 0; i < Model.Count(); i++)
+                    {
+                        <tr class="row">
+                            <th class="col-md-1">@(i + 1)</th>
+                            <td class="col-md-6">@Model[i].Name</td>
+                            <td class="col-md-5">
+                                <div class="button-container">
+                                    <form asp-controller="CategoriesManage" asp-action="Remove" method="post">
+                                        <input type="hidden" name="itemId" value="@Model[i].Id" />
+                                        <button type="submit" class="btn btn-danger action-button">Remove</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="button-holder d-flex justify-content-center text-center">
+                <a asp-controller="Home" asp-action="AdminIndex" class="btn btn-primary mx-2">Back</a>
+                <a asp-controller="CategoriesManage" asp-action="Create" class="btn btn-info">Add</a>
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+</center>
+
+<style>
+
+    .menu-container {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    /* Heading Styles */
+    .section-title {
+        font-size: 24px;
+        color: #FEA116;
+    }
+
+    /* Table Styles */
+    table {
+        width: 100%;
+        margin-bottom: 40px;
+        background-color: #FFf;
+        border: 3px solid #fea116;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    th, td {
+        text-align: center;
+        padding: 15px;
+        border: 1px solid #dee2e6;
+    }
+
+    thead {
+        background-color: #FEA116;
+        color: #fff;
+    }
+
+    tbody tr {
+        transition: background-color 0.3s ease;
+    }
+
+        tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+
+    .button-holder {
+        margin-top: 30px;
+    }
+
+    /* Button Styles */
+
+
+    .action-button {
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+</style>

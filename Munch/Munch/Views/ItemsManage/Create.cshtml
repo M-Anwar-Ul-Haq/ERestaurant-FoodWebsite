@@ -1,0 +1,104 @@
+﻿@model IList<Munch.ViewModels.Items.CreateItemViewModel>
+
+@{
+    ViewData["Title"] = "Create Item";
+    Layout = "~/Views/Shared/_Layout_admin.cshtml";
+}
+<center>
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+        <h5 class="section-title ff-secondary text-center text-primary fw-normal">Add New Item</h5>
+    </div>
+
+    <form class="menu-container" asp-controller="ItemsManage" asp-action="Create" method="post">
+        <div class="container">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Name..." name="name">
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="number" step="0.01" min="0.01" class="form-control" id="price" placeholder="Price..." name="price">
+            </div>
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select id="category" class="form-control" name="CategoryId">
+                    @foreach (var item in Model)
+                    {
+                        <option value="@item.CategoryId">@item.CategoryName</option>
+                    }
+                </select>
+            </div>
+            <div class="button-holder d-flex justify-content-center">
+                <a asp-controller="ItemsManage" asp-action="A_All" class="btn btn-default mx-2">Back</a>
+                <button type="submit" class="btn btn-success">Add</button>
+            </div>
+        </div>
+    </form>
+
+    <br />
+    <br />
+    <br />
+    <br />
+</center>
+
+
+<style>
+    .menu-container {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    /* Heading Styles */
+    .section-title {
+        font-size: 24px;
+        color: #FEA116;
+    }
+
+    /* Form Styles */
+    .form-group {
+        margin: 20px 20px 20px 20px;
+        text-align: left;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        color: #D48E00;
+    }
+
+    input {
+        width: 60%;
+        padding: 10px;
+        border: 2px solid #D48E00;
+        border-radius: 5px;
+        color: #333;
+    }
+
+    /* Button Styles */
+    .btn-success {
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+
+    .btn-default {
+        background-color: #FEA116;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        .btn-default:hover {
+            background-color: #333;
+        }
+</style>

@@ -1,0 +1,88 @@
+﻿@{
+    ViewData["Title"] = "Create Item";
+    Layout = "~/Views/Shared/_Layout_admin.cshtml";
+}
+<center>
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+        <h5 class="section-title ff-secondary text-center text-primary fw-normal">Add Category</h5>
+    </div>
+
+    <form class="menu-container" asp-controller="CategoriesManage" asp-action="Create" method="post">
+        <div class="container">
+            <div class="form-group">
+                <label for="categoryName">Category Name</label>
+                <input type="text" class="form-control" id="categoryName" placeholder="Category Name..." name="categoryName">
+            </div>
+            <div class="button-holder d-flex justify-content-center">
+                <a asp-controller="CategoriesManage" asp-action="A_All" class="btn btn-default mx-2">Back</a>
+                <button type="submit" class="btn btn-success">Add</button>
+            </div>
+        </div>
+    </form>
+
+    <br />
+    <br />
+    <br />
+    <br />
+</center>
+
+<style>
+    .menu-container {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    /* Heading Styles */
+    .section-title {
+        font-size: 24px;
+        color: #FEA116;
+    }
+
+    /* Form Styles */
+    .form-group {
+        margin: 20px 20px 20px 20px;
+        text-align: left;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        color: #D48E00;
+    }
+
+    input {
+        width: 60%;
+        padding: 10px;
+        border: 2px solid #D48E00;
+        border-radius: 5px;
+        color: #333;
+    }
+
+    /* Button Styles */
+    .btn-success {
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+
+    .btn-default {
+        background-color: #FEA116;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        .btn-default:hover {
+            background-color: #333;
+        }
+</style>
