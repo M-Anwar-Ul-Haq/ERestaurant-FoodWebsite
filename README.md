@@ -17,16 +17,27 @@ This is an ASP.net MVC Core Project built in .net 8.0
 
 # Functionalities:
 **User:**
+
 Login/Register.
+
 Add/Remove Items from Cart.
+
 Manage Cart.
+
 Confirm Order.
+
 Add Reviews.
+
 Apply for Job.
+
 Track Location.
+
 Contact.
 
 **Admin:**
-Login ("user@example.com", pass:password123).
+
+Login ("user@example.com", pass:password123
+
 Manage Items.
+
 Manage Categories.
