@@ -5,7 +5,7 @@ This is an ASP.net MVC Core Project built in .net 8.0
 ![Project Logo](Imgs/login.png)
 ![Project Logo](Imgs/buy.png)
 ![Project Logo](Imgs/items.png)
-![Project Logo](Imgs/contact.png)
+![Project Logo](Imgs/cntct.png)
 
 # Setup:
 1. Install the required Packages.
@@ -17,16 +17,16 @@ This is an ASP.net MVC Core Project built in .net 8.0
 
 # Functionalities:
 **User:**
-Login/Register
-Add/Remove Items from Cart
-Manage Cart
-Confirm Order
-Add Reviews
-Apply for Job
-Track Location
-Contact
+Login/Register.
+Add/Remove Items from Cart.
+Manage Cart.
+Confirm Order.
+Add Reviews.
+Apply for Job.
+Track Location.
+Contact.
 
 **Admin:**
-Login ("user@example.com", pass:password123)
-Manage Items
-Manage Categories
+Login ("user@example.com", pass:password123).
+Manage Items.
+Manage Categories.
