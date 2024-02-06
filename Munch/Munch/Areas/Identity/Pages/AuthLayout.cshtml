@@ -1,0 +1,54 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout_priv.cshtml";
+}
+<style>
+    .nav-item {
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+        color: #495057;
+    }
+</style>
+<div class="row justify-content-center">
+    <div class="col-5 mt-5">
+        <div class="card login-logout-card">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item" style="width:50%">
+                        <a class="nav-link" href="/Identity/Account/Login">
+                            Log In
+                        </a>
+                    </li>
+                    <li class="nav-item" style="width:50%">
+                        <a class="nav-link" href="/Identity/Account/Register">
+                            Register
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body"
+                 <div class="row justify-content-center">
+                    <div class="col-18 my-4"">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@await RenderSectionAsync("Scripts", required: false)
+@section Scripts {
+    <script>
+        $(function () {
+            const currentPage = location.pathname;
+            $('.nav-tabs li a').each(function () {
+                const $this = $(this);
+                if (currentPage.toLowerCase().indexOf($this.attr('href').toLowerCase()) !== -1) {
+                    $this.addClass('active');
+                }
+            });
+        });
+    </script>
+}
