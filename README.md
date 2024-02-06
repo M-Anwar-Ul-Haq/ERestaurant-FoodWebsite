@@ -2,8 +2,6 @@
 This is an ASP.net MVC Core Project built in .net 8.0
 
 ![Project Logo](Imgs/home.png)
-![Project Logo](Imgs/login.png)
-![Project Logo](Imgs/buy.png)
 ![Project Logo](Imgs/items.png)
 ![Project Logo](Imgs/cntct.png)
 
@@ -16,28 +14,16 @@ This is an ASP.net MVC Core Project built in .net 8.0
 6. To integrate email configuration change email credentials in Controlllers Code.
 
 # Functionalities:
-**User:**
-
-Login/Register.
-
-Add/Remove Items from Cart.
-
-Manage Cart.
-
-Confirm Order.
-
-Add Reviews.
-
-Apply for Job.
-
-Track Location.
-
-Contact.
-
-**Admin:**
-
-Login ("user@example.com", pass:password123
-
-Manage Items.
-
-Manage Categories.
+**User:**  
+Login/Register.  
+Add/Remove Items from Cart.  
+Manage Cart.  
+Confirm Order.  
+Add Reviews.  
+Apply for Job.  
+Track Location.  
+Contact.  
+**Admin:**  
+Login ("user@example.com", pass:password123  
+Manage Items.  
+Manage Categories.  
